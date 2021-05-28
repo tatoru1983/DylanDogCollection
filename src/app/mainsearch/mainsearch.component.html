@@ -1,0 +1,110 @@
+<div class="table-responsive">
+  <table class="table .table-striped">
+    <thead>
+      <tr>
+        <th>Numero</th>
+        <th>Titolo</th>
+        <th>Anno</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let albo of dataSource" data-toggle="modal" data-target="#dettaglioAlbo" (click)="onClickRow(albo)">
+        <td>{{albo.numero}}</td>
+        <td>{{albo.titolo}}</td>
+        <td>{{albo.anno}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="dettaglioAlbo">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">{{titoloRow}}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <img src="{{imageRow}}" class="img-thumbnail">
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <h5>Numero</h5>
+              </div>
+              <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <h6>{{numeroRow}}</h6>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <h5>Anno</h5>
+              </div>
+              <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <h6>{{annoRow}}</h6>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <h5>Sceneggiatura</h5>
+              </div>
+              <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <ul class="list-group" *ngFor="let sceneggiatore of sceneggiaturaRow">
+                  <li class="list-group-item"><h6>{{sceneggiatore}}</h6></li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <h5>Disegni</h5>
+              </div>
+              <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <ul class="list-group" *ngFor="let disegnatore of disegniRow">
+                  <li class="list-group-item"><h6>{{disegnatore}}</h6></li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <h5>Soggetto</h5>
+              </div>
+              <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <ul class="list-group" *ngFor="let soggetto of soggettoRow">
+                  <li class="list-group-item"><h6>{{soggetto}}</h6></li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <h5>Copertina</h5>
+              </div>
+              <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <ul class="list-group" *ngFor="let copertina of copertinaRow">
+                  <li class="list-group-item"><h6>{{copertina}}</h6></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" [ngModel]="checkRow=='S'">  {{edizioneRow}}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

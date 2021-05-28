@@ -1,0 +1,39 @@
+<form #filterSearch="ngForm" (ngSubmit)="onClickSubmit(filterSearch.value)">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <label for="albo">Albo:</label>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <input type="text" ngModel class="form-control" id="albo" name="albo">
+            </div>
+            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <label for="author">Autore:</label>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <input type="text" ngModel class="form-control" id="autore" name="autore">
+            </div>
+            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <label for="drower">Disegnatore:</label>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <input type="text" ngModel class="form-control" id="disegnatore" name="disegnatore">
+            </div>
+            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <label for="year">Anno:</label>
+            </div>
+            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <select class="form-control custom-select-sm" ngModel id="anno" name="anno">
+                    <option></option>
+                    <option *ngFor="let anno of dataSourceAnno">{{anno.anno}}</option>
+                </select>
+            </div>
+            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <button type="submit" class="btn btn-dark">Ricerca</button>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="row">
+    <app-mainsearch [dataSource]="dataSourceGrid"></app-mainsearch>
+</div>
